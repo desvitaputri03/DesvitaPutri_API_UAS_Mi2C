@@ -9,13 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('perpustakaans', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+   public function up()
+{
+    Schema::create('perpustakaans', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('nama_perpustakaan');
+        $table->text('alamat');
+        $table->string('no_telepon');
+        $table->enum('tipe', ['Negeri', 'Swasta']);
+        $table->double('latitude');
+        $table->double('longitude');
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.
